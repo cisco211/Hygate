@@ -1,4 +1,4 @@
 # Hygate
-Collection of mods and documentation about creating custom portals in Hytale.
+Collection of mods, prefabs and documentation about creating custom portals in Hytale.
 
 ~EOF
