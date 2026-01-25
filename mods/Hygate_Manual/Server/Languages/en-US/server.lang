@@ -1,8 +1,22 @@
+# === Hygate Portals ===
+
 hygate.items.Hub_Portal_Hygate_Default.name = Hygate: Default
-hygate.items.Hub_Portal_Hygate_Default.description = Teleports you to the portal world 'Default'
+hygate.items.Hub_Portal_Hygate_Default.description = Teleports you to the world 'Default'.
+
+hygate.items.Hub_Portal_Hygate_Hedera.name = Hygate: Hedera
+hygate.items.Hub_Portal_Hygate_Hedera.description = Teleports you to the world 'Hedera'.
+
+hygate.items.Hub_Portal_Hygate_Henges.name = Hygate: Henges
+hygate.items.Hub_Portal_Hygate_Henges.description = Teleports you to the world 'Henges'.
+
+hygate.items.Hub_Portal_Hygate_Jungles.name = Hygate: Jungles
+hygate.items.Hub_Portal_Hygate_Jungles.description = Teleports you to the world 'Jungles'.
 
 hygate.items.Hub_Portal_Hygate_Oasis.name = Hygate: Oasis
-hygate.items.Hub_Portal_Hygate_Oasis.description = Teleports you to the portal world 'Oasis'
+hygate.items.Hub_Portal_Hygate_Oasis.description = Teleports you to the world 'Oasis'.
 
 hygate.items.Hub_Portal_Hygate_Sandbox.name = Hygate: Sandbox
-hygate.items.Hub_Portal_Hygate_Sandbox.description = Teleports you to the portal world 'Sandbox'
+hygate.items.Hub_Portal_Hygate_Sandbox.description = Teleports you to the world 'Sandbox'.
+
+hygate.items.Hub_Portal_Hygate_Taiga.name = Hygate: Taiga
+hygate.items.Hub_Portal_Hygate_Taiga.description = Teleports you to the world 'Taiga'.

@@ -77,7 +77,7 @@
 		{
 			"*.code-workspace-dist": "json",
 			"*.json-dist": "json",
-			"*.lang": "ini",
+			"*.lang": "properties",
 			"manifest.json": "json"
 		}
 	}
