@@ -1,3 +1,4 @@
-This repository has just been created.
+# Hygate
+Collection of mods and documentation about creating custom portals.
 
-As long this is not done, see how to do it manually here: [Howto_CustomPortals.md](Howto_CustomPortals.md)
+~EOF
