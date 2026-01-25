@@ -1,0 +1,25 @@
+{
+  "Group": "Hygate",
+  "Name": "HygateManual",
+  "Version": "0.1.0",
+  "Description": "Make portals manually pointing to different worlds.",
+  "Authors": [
+    {
+      "Name": "Cisco211",
+      "Email": "TjSBMD1810@yahoo.de",
+      "Url": "https://cisco211.de/"
+    },
+    {
+        "Name": "k3LLerInstInkt",
+        "Email": "k3llerinstinkt@gmail.com",
+        "Url": "https://be-wise.de/"
+    }
+  ],
+  "Website": "https://github.com/cisco211/Hygate/",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false,
+  "SubPlugins": []
+}

@@ -1,0 +1,8 @@
+hygate.items.Hub_Portal_Hygate_Default.name = Hygate: Default
+hygate.items.Hub_Portal_Hygate_Default.description = Teleports you to the portal world 'Default'
+
+hygate.items.Hub_Portal_Hygate_Oasis.name = Hygate: Oasis
+hygate.items.Hub_Portal_Hygate_Oasis.description = Teleports you to the portal world 'Oasis'
+
+hygate.items.Hub_Portal_Hygate_Sandbox.name = Hygate: Sandbox
+hygate.items.Hub_Portal_Hygate_Sandbox.description = Teleports you to the portal world 'Sandbox'
