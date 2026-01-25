@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Henges.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Henges.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Sandbox.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Sandbox.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Portals_Henges",
+            "WorldName": "Sandbox",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",

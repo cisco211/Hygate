@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Oasis.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Oasis.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Hedera.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Hedera.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Portals_Oasis",
+            "WorldName": "Portals_Hedera",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",

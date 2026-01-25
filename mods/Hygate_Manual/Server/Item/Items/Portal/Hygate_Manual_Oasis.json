@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Taiga.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Taiga.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Oasis.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Oasis.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Portals_Taiga",
+            "WorldName": "Portals_Oasis",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",

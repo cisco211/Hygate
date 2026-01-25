@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Default.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Default.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Default.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Default.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [

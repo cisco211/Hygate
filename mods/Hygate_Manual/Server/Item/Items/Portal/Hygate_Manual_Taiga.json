@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Hedera.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Hedera.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Taiga.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Taiga.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Portals_Hedera",
+            "WorldName": "Portals_Taiga",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",

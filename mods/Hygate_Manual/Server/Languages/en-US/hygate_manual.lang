@@ -1,0 +1,22 @@
+# === Hygate_Manual Items ===
+
+items.Hygate_Manual_Default.name = Hygate: Default
+items.Hygate_Manual_Default.description = Teleports you to the world 'Default'.
+
+items.Hygate_Manual_Hedera.name = Hygate: Hedera
+items.Hygate_Manual_Hedera.description = Teleports you to the world 'Hedera'.
+
+items.Hygate_Manual_Henges.name = Hygate: Henges
+items.Hygate_Manual_Henges.description = Teleports you to the world 'Henges'.
+
+items.Hygate_Manual_Jungles.name = Hygate: Jungles
+items.Hygate_Manual_Jungles.description = Teleports you to the world 'Jungles'.
+
+items.Hygate_Manual_Oasis.name = Hygate: Oasis
+items.Hygate_Manual_Oasis.description = Teleports you to the world 'Oasis'.
+
+items.Hygate_Manual_Sandbox.name = Hygate: Sandbox
+items.Hygate_Manual_Sandbox.description = Teleports you to the world 'Sandbox'.
+
+items.Hygate_Manual_Taiga.name = Hygate: Taiga
+items.Hygate_Manual_Taiga.description = Teleports you to the world 'Taiga'.

@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Jungles.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Jungles.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Henges.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Henges.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Portals_Jungles",
+            "WorldName": "Portals_Henges",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",

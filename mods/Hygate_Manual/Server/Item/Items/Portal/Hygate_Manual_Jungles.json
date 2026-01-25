@@ -1,7 +1,7 @@
 {
   "TranslationProperties": {
-    "Name": "server.hygate.items.Hub_Portal_Hygate_Sandbox.name",
-    "Description": "server.hygate.items.Hub_Portal_Hygate_Sandbox.description"
+    "Name": "hygate_manual.items.Hygate_Manual_Jungles.name",
+    "Description": "hygate_manual.items.Hygate_Manual_Jungles.description"
   },
   "Icon": "Icons/ItemsGenerated/Portal_Device.png",
   "Categories": [
@@ -49,7 +49,7 @@
         "Interactions": [
           {
             "Type": "HubPortal",
-            "WorldName": "Sandbox",
+            "WorldName": "Portals_Jungles",
             "WorldGenType": "HytaleGenerator",
             "Next": {
               "Type": "Simple",
