@@ -1,6 +1,6 @@
 {
   "Group": "Hygate",
-  "Name": "HygateManual",
+  "Name": "Hygate_Manual",
   "Version": "0.1.0",
   "Description": "Make portals manually pointing to different worlds.",
   "Authors": [
