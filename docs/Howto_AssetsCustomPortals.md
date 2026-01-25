@@ -1,4 +1,4 @@
-# Howto: Custom Portals
+# Howto: Custom Portals by editing the Assets
 Found a way to create custom portals to any world you like to have a portal to.
 This solution works fully server side, means no client modification is required.
 
