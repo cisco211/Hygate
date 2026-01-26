@@ -24,6 +24,12 @@
 			"editor.tabSize": 1,
 			"files.encoding": "utf8"
 		},
+		"[java]":
+		{
+			"editor.insertSpaces": false,
+			"editor.tabSize": 4,
+			"files.encoding": "utf8"
+		},
 		"[javascript]":
 		{
 			"editor.insertSpaces": false,
@@ -76,6 +82,7 @@
 		"files.associations":
 		{
 			"*.code-workspace-dist": "json",
+			"*.jar": "zip",
 			"*.json-dist": "json",
 			"*.lang": "properties",
 			"manifest.json": "json"
