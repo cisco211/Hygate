@@ -1,4 +1,4 @@
-package de.cisco211.hygate.hygateautoplugin;
+package de.cisco211.hygate.hygateauto;
 
 import javax.annotation.Nonnull;
 
