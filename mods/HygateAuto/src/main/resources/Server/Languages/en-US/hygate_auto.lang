@@ -1,1 +1,3 @@
-# === Hygate_Auto ??? ===
+# === HygateAuto Commands ===
+command.hello.description = HygateAuto hello command.
+command.hello.output = Hello from HygateAuto plugin!

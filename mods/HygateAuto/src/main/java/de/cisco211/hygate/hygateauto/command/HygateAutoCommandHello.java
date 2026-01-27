@@ -19,13 +19,15 @@ public class HygateAutoCommandHello extends AbstractPlayerCommand
 
 	public HygateAutoCommandHello(HygateAutoPlugin plugin)
 	{
-		super("hello", plugin.identifier + " hello command."); // /hygate auto hello
+		// C: Fix nonnull warning bullshit.
+		var desc = Message.translation("hygate_auto.command.hello.description").toString() + " ";
+		super("hello", desc); // /hygate auto hello
 		this.plugin = plugin;
 	}
 
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
-		ctx.sendMessage(Message.raw("Hello from the " + plugin.identifier + " plugin!"));
+		ctx.sendMessage(Message.translation("hygate_auto.command.hello.output"));
 	}
 }
