@@ -4,9 +4,9 @@ import com.hypixel.hytale.server.core.command.system.basecommands.AbstractComman
 
 import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
 
-public class HygateAutoCommandCollection extends AbstractCommandCollection
+public class HygateAutoCommand extends AbstractCommandCollection
 {
-	public HygateAutoCommandCollection(HygateAutoPlugin plugin)
+	public HygateAutoCommand(HygateAutoPlugin plugin)
 	{
 		super("auto", "HygateAuto commands."); // /hygate auto
 		this.addSubCommand(new HygateAutoCommandGenerate(plugin));

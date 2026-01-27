@@ -9,6 +9,6 @@ public class HygateCommand extends AbstractCommandCollection
 	public HygateCommand(HygateAutoPlugin plugin)
 	{
 		super("hygate", "Hygate commands."); // /hygate
-		this.addSubCommand(new HygateAutoCommandCollection(plugin));
+		this.addSubCommand(new HygateAutoCommand(plugin));
 	}
 }
