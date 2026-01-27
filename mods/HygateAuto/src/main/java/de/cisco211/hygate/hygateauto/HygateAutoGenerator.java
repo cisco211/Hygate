@@ -236,6 +236,10 @@ public class HygateAutoGenerator
 	 */
 	public List<String> worlds() throws IOException
 	{
+		if (plugin.debug)
+		{
+			LOGGER.atInfo().log("%s:Generator worlds", plugin.identifier);
+		}
 		Path rootPath = Paths.get("universe", "worlds");
 		try (Stream<Path> stream = Files.list(rootPath))
 		{
