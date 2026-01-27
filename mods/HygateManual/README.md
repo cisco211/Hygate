@@ -1,9 +1,9 @@
-# Hygate_Manual
+# Hygate Manual Plugin
 Simple, non-code mod to define custom portals by hand.
 Pretty self explaining.
 
 ## Install
-* Place this mod folder (`Hygate_Manual`) into the mods location of your game.
+* Place this mod folder (`HygateManual`) into the mods location of your game.
 * The location where to put the mod depends on your Operating System and
   Game type being used (Singleplayer/Dedicated Server).
 
