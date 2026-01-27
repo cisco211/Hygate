@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "gradlew build Hygate_Auto",
+			"type": "shell",
+			"command": "& '.\\gradlew' build",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/mods/Hygate_Auto"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "gradlew clean Hygate_Auto",
+			"type": "shell",
+			"command": "& '.\\gradlew' clean",
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/mods/Hygate_Auto"
+			},
+			"problemMatcher": []
+		}
+	]
+}
