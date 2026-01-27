@@ -28,7 +28,7 @@ public class HygateAutoCommandGenerate extends AbstractPlayerCommand
 	{
 		if (ctx.sender().hasPermission("OP"))
 		{
-			if (this.plugin.generate())
+			if (this.plugin.generator.generate())
 				ctx.sendMessage(Message.raw("Hygate's generated!"));
 			else
 				ctx.sendMessage(Message.raw("Error: Failed to generate Hygate's!"));

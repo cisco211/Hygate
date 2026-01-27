@@ -10,38 +10,22 @@ import de.cisco211.hygate.hygateauto.command.HygateCommand;
 
 public class HygateAutoPlugin extends JavaPlugin
 {
-	private static final boolean DEBUG = true;
-
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
+
+	public final boolean debug = true;
+
+	public final HygateAutoGenerator generator;
 
 	public final String identifier;
 
 	public HygateAutoPlugin(@Nonnull JavaPluginInit init) // Called after plugin being loaded in
 	{
 		super(init);
+		this.generator = new HygateAutoGenerator(this);
 		this.identifier = this.getName() + " v" + this.getManifest().getVersion().toString();
-		if (DEBUG)
+		if (debug)
 			LOGGER.atInfo().log("%s constructor", this.identifier);
-		create();
-	}
-
-	// Create
-	// Creates the package where generated items get put in.
-	protected void create()
-	{
-		if (DEBUG)
-			LOGGER.atInfo().log("%s create", this.identifier);
-		// TODO: Create the autogen pack here.
-	}
-
-	// Generate
-	// Generates the gateway portal items.
-	public boolean generate()
-	{
-		if (DEBUG)
-			LOGGER.atInfo().log("%s generate", this.identifier);
-		// TODO: Rebuild items and their translation here.
-		return true;
+		generator.create();
 	}
 
 	// Setup
@@ -50,7 +34,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	protected void setup()
 	{
 		this.getCommandRegistry().registerCommand(new HygateCommand(this));
-		if (DEBUG)
+		if (debug)
 			LOGGER.atInfo().log("%s setup", this.identifier);
 	}
 
@@ -59,7 +43,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	@Override
 	protected void shutdown()
 	{
-		if (DEBUG)
+		if (debug)
 			LOGGER.atInfo().log("%s shutdown", this.identifier);
 	}
 
@@ -68,7 +52,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	@Override
 	protected void start()
 	{
-		if (DEBUG)
+		if (debug)
 			LOGGER.atInfo().log("%s start", this.identifier);
 	}
 }
