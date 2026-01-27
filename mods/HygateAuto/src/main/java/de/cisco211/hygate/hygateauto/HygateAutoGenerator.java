@@ -25,6 +25,8 @@ public class HygateAutoGenerator
 	{
 		this.packageName = plugin.getManifest().getName() + "Gen";
 		this.plugin = plugin;
+		if (plugin.debug)
+			LOGGER.atInfo().log("%s:Generator constructor", plugin.identifier);
 	}
 
 	// Create
@@ -175,9 +177,13 @@ public class HygateAutoGenerator
 	// Generates the gateway portal items.
 	public boolean generate()
 	{
+		// Debug
 		if (plugin.debug)
+		{
 			LOGGER.atInfo().log("%s:Generator generate", plugin.identifier);
+		}
+
 		// TODO: Rebuild items and their translation here.
-		return true;
+		return false;
 	}
 }

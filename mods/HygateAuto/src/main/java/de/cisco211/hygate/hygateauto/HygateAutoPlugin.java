@@ -27,9 +27,9 @@ public class HygateAutoPlugin extends JavaPlugin
 	{
 		super(init);
 		this.generator = new HygateAutoGenerator(this);
-		this.identifier = this.getName() + " v" + this.getManifest().getVersion().toString();
+		this.identifier = this.getName();
 		if (debug)
-			LOGGER.atInfo().log("%s constructor", this.identifier);
+			LOGGER.atInfo().log("%s:Plugin constructor", this.identifier);
 		generator.create();
 	}
 
@@ -40,7 +40,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	{
 		this.getCommandRegistry().registerCommand(new HygateCommand(this));
 		if (debug)
-			LOGGER.atInfo().log("%s setup", this.identifier);
+			LOGGER.atInfo().log("%s:Plugin setup", this.identifier);
 	}
 
 	// Shutdown
@@ -49,7 +49,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	protected void shutdown()
 	{
 		if (debug)
-			LOGGER.atInfo().log("%s shutdown", this.identifier);
+			LOGGER.atInfo().log("%s:Plugin shutdown", this.identifier);
 	}
 
 	// Start
@@ -58,7 +58,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	protected void start()
 	{
 		if (debug)
-			LOGGER.atInfo().log("%s start", this.identifier);
+			LOGGER.atInfo().log("%s:Plugin start", this.identifier);
 	}
 
 	// Translate
