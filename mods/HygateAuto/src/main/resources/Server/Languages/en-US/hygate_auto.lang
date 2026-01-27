@@ -6,9 +6,14 @@ command.hello.description = "{plugin} hello command."
 command.hello.output = "Hello from {plugin} plugin!"
 
 command.generate.description = "{plugin} generate command."
-command.generate.failed = "Error: Failed to generate Hygate's!"
-command.generate.no_permission = "Error: No permission to use this command!"
+command.generate.failed = "Failed to generate Hygate's!"
+command.generate.failed_with = "Failed to generate Hygate's! With: {message}"
+command.generate.no_permission = "No permission to use this command!"
 command.generate.success = "Hygate's generated!"
+
+command.worlds.description = "{plugin} worlds command."
+command.worlds.error = "Failed to list suitable Hygate worlds: {error}"
+command.worlds.success = "Suitable Hygate worlds ({count}): {worlds}"
 
 
 # ~EOF

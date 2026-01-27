@@ -15,40 +15,32 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
 
-public class HygateAutoCommandGenerate extends AbstractPlayerCommand
+public class HygateAutoCommandWorlds extends AbstractPlayerCommand
 {
 	protected final HygateAutoPlugin plugin;
 
-	public HygateAutoCommandGenerate(HygateAutoPlugin plugin)
+	public HygateAutoCommandWorlds(HygateAutoPlugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
-		var description = Objects.requireNonNull(plugin.translate("command.generate.description").param("plugin", paramPlugin).toString());
-		super("generate", description); // /hygate auto generate
+		var description = Objects.requireNonNull(plugin.translate("command.worlds.description").param("plugin", paramPlugin).toString());
+		super("worlds", description); // /hygate auto worlds
 		this.plugin = plugin;
 	}
 
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
-		if (ctx.sender().hasPermission("OP")) // C: Not sure yet if its admin only or not.
+		try
 		{
-			try
-			{
-				var result =
-					plugin.generator.generate()
-					? plugin.translate("command.generate.success")
-					: plugin.translate("command.generate.failed")
-				;
-				ctx.sendMessage(result);
-			}
-			catch (IOException e)
-			{
-				var message = Objects.requireNonNull(e.getMessage());
-				var result = plugin.translate("command.generate.failed_with").param("message", message);
-				ctx.sendMessage(result);
-			}
+			var list = plugin.generator.worldsFormatted();
+			var count = Objects.requireNonNull(String.valueOf(list.size()));
+			var worlds = Objects.requireNonNull(String.join(", ", plugin.generator.worldsFormatted()));
+			ctx.sendMessage(plugin.translate("command.worlds.success").param("count", count).param("worlds", worlds));
 		}
-		else
-			ctx.sendMessage(plugin.translate("command.generate.no_permission"));
+		catch (IOException e)
+		{
+			var error = Objects.requireNonNull(e.toString());
+			ctx.sendMessage(plugin.translate("command.worlds.error").param("error", error));
+		}
 	}
 }

@@ -5,7 +5,13 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.annotation.Nonnull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,7 +27,11 @@ public class HygateAutoGenerator
 
 	protected final HygateAutoPlugin plugin;
 
-	public HygateAutoGenerator(HygateAutoPlugin plugin)
+	/**
+	 * <b>Constructor</b>
+	 * @param plugin @Nonnull HygateAutoPlugin
+	 */
+	public HygateAutoGenerator(@Nonnull HygateAutoPlugin plugin)
 	{
 		this.packageName = plugin.getManifest().getName() + "Gen";
 		this.plugin = plugin;
@@ -29,8 +39,11 @@ public class HygateAutoGenerator
 			LOGGER.atInfo().log("%s:Generator constructor", plugin.identifier);
 	}
 
-	// Create
-	// Creates the package where generated items get put in.
+	/**
+	 * <b>Create</b>
+	 * <br/>
+	 * Creates the package where generated items get put in.
+	 */
 	public void create()
 	{
 		// Debug
@@ -103,7 +116,11 @@ public class HygateAutoGenerator
 		}
 	}
 
-	// Create directory
+	/**
+	 * <b>Create directory</b>
+	 * @param path Path
+	 * @throws IOException
+	 */
 	protected void createDirectory(Path path) throws IOException
 	{
 		if (Files.notExists(path))
@@ -114,7 +131,11 @@ public class HygateAutoGenerator
 		}
 	}
 
-	// Create manifest
+	/**
+	 * <b>Create manifest</b>
+	 * @param path Path
+	 * @throws IOException
+	 */
 	protected void createManifest(Path path) throws IOException
 	{
 		Path manifestFile = path.resolve("manifest.json");
@@ -159,7 +180,11 @@ public class HygateAutoGenerator
 		}
 	}
 
-	// Create translation
+	/**
+	 * <b>Create translation</b>
+	 * @param path Path
+	 * @throws IOException
+	 */
 	protected void createTranslation(Path path) throws IOException
 	{
 		Path translationFile = path.resolve("hygate_auto_gen.lang");
@@ -176,9 +201,14 @@ public class HygateAutoGenerator
 		}
 	}
 
-	// Generate
-	// Generates the gateway portal items.
-	public boolean generate()
+	/**
+	 * <b>Generate</b>
+	 * <br/>
+	 * Generates the gateway portal items.
+	 * @return boolean
+	 * @throws IOException
+	 */
+	public boolean generate() throws IOException
 	{
 		// Debug
 		if (plugin.debug)
@@ -186,7 +216,61 @@ public class HygateAutoGenerator
 			LOGGER.atInfo().log("%s:Generator generate", plugin.identifier);
 		}
 
+		// Get available worlds
+		var worlds = worlds();
+
+		// TODO: Do something with the worlds.
+		if (plugin.debug)
+			LOGGER.atInfo().log("%s", String.join(", ", worlds));
+
 		// TODO: Rebuild items and their translation here.
 		return false;
+	}
+
+	/**
+	 * <b>Worlds</b>
+	 * <br/>
+	 * Read suitable worlds from universe/worlds directory.
+	 * @return List<String>
+	 * @throws IOException
+	 */
+	public List<String> worlds() throws IOException
+	{
+		Path rootPath = Paths.get("universe", "worlds");
+		try (Stream<Path> stream = Files.list(rootPath))
+		{
+			return stream
+				.filter(Files::isDirectory)
+				.map(path2 -> path2.getFileName().toString())
+				.filter(name -> !name.startsWith("instance-"))
+				.sorted()
+				.collect(Collectors.toList())
+			;
+		}
+	}
+
+	/**
+	 * <b>Worlds formatted</b>
+	 * <br/>
+	 * List suitable worlds being formatted nicely.
+	 * @return List<String>
+	 * TODO: Add list view, when items can fit in chat, else do string join.
+	 */
+	public List<String> worldsFormatted() throws IOException
+	{
+		var list = worlds();
+		if (list.isEmpty())
+		{
+			return List.of();
+		}
+		var worlds = new ArrayList<String>(list.size());
+		for (String world : list)
+		{
+			String formatted = world.replace('_', ' ');
+			formatted = formatted.substring(0, 1).toUpperCase() + formatted.substring(1);
+			worlds.add(formatted);
+		}
+		worlds.sort(null);
+		return worlds;
 	}
 }

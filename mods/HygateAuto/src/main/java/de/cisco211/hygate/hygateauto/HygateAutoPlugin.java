@@ -23,7 +23,13 @@ public class HygateAutoPlugin extends JavaPlugin
 
 	public final String identifier;
 
-	public HygateAutoPlugin(@Nonnull JavaPluginInit init) // Called after plugin being loaded in
+	/**
+	 * <b>Constructor</b>
+	 * <br/>
+	 * Called after plugin being loaded in.
+	 * @param init @Nonnull JavaPluginInit
+	 */
+	public HygateAutoPlugin(@Nonnull JavaPluginInit init)
 	{
 		super(init);
 		this.identifier = this.getName(); // C: Must happen at very first
@@ -34,8 +40,11 @@ public class HygateAutoPlugin extends JavaPlugin
 		generator.create();
 	}
 
-	// Setup
-	// C: Called after asset monitor.
+	/**
+	 * <b>Setup</b>
+	 * <br/>
+	 * Called after asset monitor.
+	 */
 	@Override
 	protected void setup()
 	{
@@ -44,8 +53,11 @@ public class HygateAutoPlugin extends JavaPlugin
 			LOGGER.atInfo().log("%s:Plugin setup", this.identifier);
 	}
 
-	// Shutdown
-	// C: Called when unloading plugins.
+	/**
+	 * <b>Shutdown</b>
+	 * <br/>
+	 * Called when unloading plugins.
+	 */
 	@Override
 	protected void shutdown()
 	{
@@ -53,8 +65,11 @@ public class HygateAutoPlugin extends JavaPlugin
 			LOGGER.atInfo().log("%s:Plugin shutdown", this.identifier);
 	}
 
-	// Start
-	// C: Called after loading worlds.
+	/**
+	 * <b>Start</b>
+	 * <br/>
+	 * Called after loading worlds.
+	 */
 	@Override
 	protected void start()
 	{
@@ -63,6 +78,11 @@ public class HygateAutoPlugin extends JavaPlugin
 	}
 
 	// Translate
+	/**
+	 * <b>Translate</b>
+	 * @param key String
+	 * @return @Nonnull Message
+	 */
 	public @Nonnull Message translate(String key)
 	{
 		return Message.translation(LANG_KEY + "." + Objects.requireNonNull(key));
