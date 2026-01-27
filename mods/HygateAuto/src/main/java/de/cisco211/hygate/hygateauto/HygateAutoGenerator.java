@@ -17,10 +17,13 @@ public class HygateAutoGenerator
 {
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
+	protected final String packageName;
+
 	protected final HygateAutoPlugin plugin;
 
 	public HygateAutoGenerator(HygateAutoPlugin plugin)
 	{
+		this.packageName = plugin.getManifest().getName() + "Gen";
 		this.plugin = plugin;
 	}
 
@@ -38,7 +41,7 @@ public class HygateAutoGenerator
 		try
 		{
 			// Get package path
-			Path packagePath = Paths.get("mods", plugin.getManifest().getName());
+			Path packagePath = Paths.get("mods", packageName);
 
 			// Package directory
 			createDirectory(packagePath);
@@ -129,7 +132,15 @@ public class HygateAutoGenerator
 				}
 				String pascalKey = key.substring(0, 1).toUpperCase() + key.substring(1);
 				JsonElement value = entry.getValue();
-				if (key.equalsIgnoreCase("version"))
+				if (key.equalsIgnoreCase("dependencies"))
+				{
+					newObj.add(pascalKey, new JsonObject());
+				}
+				else if (key.equalsIgnoreCase("name"))
+				{
+					newObj.addProperty(pascalKey, packageName);
+				}
+				else if (key.equalsIgnoreCase("version"))
 				{
 					newObj.addProperty(pascalKey, mf.getVersion().toString());
 				}
@@ -141,7 +152,7 @@ public class HygateAutoGenerator
 			try (Writer writer = Files.newBufferedWriter(manifestFile))
 			{
 				gson.toJson(newObj, writer);
-				LOGGER.atInfo().log("Created json: %s", manifestFile.toAbsolutePath());
+				LOGGER.atInfo().log("Created manifest: %s", manifestFile.toAbsolutePath());
 			}
 		}
 	}
@@ -149,12 +160,12 @@ public class HygateAutoGenerator
 	// Create translation
 	protected void createTranslation(Path path) throws IOException
 	{
-		Path translationFile = path.resolve("hygate_auto_items.lang");
+		Path translationFile = path.resolve("hygate_auto_gen.lang");
 		if (Files.notExists(translationFile))
 		{
 			try (Writer writer = Files.newBufferedWriter(translationFile))
 			{
-				writer.write("# === " + plugin.getManifest().getName() + " Items ===\n\n");
+				writer.write("# === " + packageName + " Items ===\n\n");
 				LOGGER.atInfo().log("Created translation: %s", translationFile.toAbsolutePath());
 			}
 		}
