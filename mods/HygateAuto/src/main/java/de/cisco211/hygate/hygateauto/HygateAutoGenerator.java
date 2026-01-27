@@ -167,7 +167,10 @@ public class HygateAutoGenerator
 		{
 			try (Writer writer = Files.newBufferedWriter(translationFile))
 			{
-				writer.write("# === " + packageName + " Items ===\n\n");
+				writer.write("# === " + packageName + " Items ===\n");
+				writer.write("\n");
+				writer.write("\n");
+				writer.write("# ~EOF\n");
 				LOGGER.atInfo().log("Created translation: %s", translationFile.toAbsolutePath());
 			}
 		}

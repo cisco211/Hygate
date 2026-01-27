@@ -26,10 +26,11 @@ public class HygateAutoPlugin extends JavaPlugin
 	public HygateAutoPlugin(@Nonnull JavaPluginInit init) // Called after plugin being loaded in
 	{
 		super(init);
-		this.generator = new HygateAutoGenerator(this);
-		this.identifier = this.getName();
+		this.identifier = this.getName(); // C: Must happen at very first
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin constructor", this.identifier);
+
+		this.generator = new HygateAutoGenerator(this);
 		generator.create();
 	}
 
