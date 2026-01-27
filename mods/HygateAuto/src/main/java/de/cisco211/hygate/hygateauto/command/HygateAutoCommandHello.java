@@ -1,10 +1,11 @@
 package de.cisco211.hygate.hygateauto.command;
 
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -19,15 +20,16 @@ public class HygateAutoCommandHello extends AbstractPlayerCommand
 
 	public HygateAutoCommandHello(HygateAutoPlugin plugin)
 	{
-		// C: Fix nonnull warning bullshit.
-		var desc = Message.translation("hygate_auto.command.hello.description").toString() + " ";
-		super("hello", desc); // /hygate auto hello
+		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
+		var description = Objects.requireNonNull(plugin.translate("command.hello.description").param("plugin", paramPlugin).toString());
+		super("hello", description); // /hygate auto hello
 		this.plugin = plugin;
 	}
 
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
-		ctx.sendMessage(Message.translation("hygate_auto.command.hello.output"));
+		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
+		ctx.sendMessage(plugin.translate("command.hello.output").param("plugin", paramPlugin));
 	}
 }

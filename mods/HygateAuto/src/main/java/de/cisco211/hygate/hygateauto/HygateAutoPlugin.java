@@ -1,8 +1,11 @@
 package de.cisco211.hygate.hygateauto;
 
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
@@ -10,6 +13,8 @@ import de.cisco211.hygate.hygateauto.command.HygateCommand;
 
 public class HygateAutoPlugin extends JavaPlugin
 {
+	protected static final String LANG_KEY = "hygate_auto";
+
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
 	public final boolean debug = true;
@@ -54,5 +59,11 @@ public class HygateAutoPlugin extends JavaPlugin
 	{
 		if (debug)
 			LOGGER.atInfo().log("%s start", this.identifier);
+	}
+
+	// Translate
+	public @Nonnull Message translate(String key)
+	{
+		return Message.translation(LANG_KEY + "." + Objects.requireNonNull(key));
 	}
 }

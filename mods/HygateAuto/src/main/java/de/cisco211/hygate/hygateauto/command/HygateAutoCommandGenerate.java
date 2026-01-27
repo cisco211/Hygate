@@ -1,10 +1,11 @@
 package de.cisco211.hygate.hygateauto.command;
 
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
-import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.command.system.CommandContext;
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
@@ -19,21 +20,25 @@ public class HygateAutoCommandGenerate extends AbstractPlayerCommand
 
 	public HygateAutoCommandGenerate(HygateAutoPlugin plugin)
 	{
-		super("generate", plugin.identifier + " generate command."); // /hygate auto generate
+		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
+		var description = Objects.requireNonNull(plugin.translate("command.generate.description").param("plugin", paramPlugin).toString());
+		super("generate", description); // /hygate auto generate
 		this.plugin = plugin;
 	}
 
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
-		if (ctx.sender().hasPermission("OP"))
+		if (ctx.sender().hasPermission("OP")) // C: Not sure yet if its admin only or not.
 		{
-			if (this.plugin.generator.generate())
-				ctx.sendMessage(Message.raw("Hygate's generated!"));
-			else
-				ctx.sendMessage(Message.raw("Error: Failed to generate Hygate's!"));
+			var result =
+				plugin.generator.generate()
+				? plugin.translate("command.generate.success")
+				: plugin.translate("command.generate.failed")
+			;
+			ctx.sendMessage(result);
 		}
 		else
-			ctx.sendMessage(Message.raw("Error: No permission to use this command!"));
+			ctx.sendMessage(plugin.translate("command.generate.no_permission"));
 	}
 }

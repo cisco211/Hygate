@@ -1,3 +1,14 @@
 # === HygateAuto Commands ===
-command.hello.description = HygateAuto hello command.
-command.hello.output = Hello from HygateAuto plugin!
+commands0 = "Hygate commands".
+commands1 = "{plugin} commands."
+
+command.hello.description = "{plugin} hello command."
+command.hello.output = "Hello from {plugin} plugin!"
+
+command.generate.description = "{plugin} generate command."
+command.generate.failed = "Error: Failed to generate Hygate's!"
+command.generate.no_permission = "Error: No permission to use this command!"
+command.generate.success = "Hygate's generated!"
+
+
+# ~EOF
