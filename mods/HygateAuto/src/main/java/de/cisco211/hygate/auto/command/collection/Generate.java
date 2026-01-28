@@ -53,7 +53,8 @@ public class Generate extends AbstractPlayerCommand
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
-		if (ctx.sender().hasPermission("OP")) // C: Not sure yet if its admin only or not.
+		// TODO: Handle permissions as intended later, right now this is fine.
+		if (ctx.sender().hasPermission("OP"))
 		{
 			try
 			{
