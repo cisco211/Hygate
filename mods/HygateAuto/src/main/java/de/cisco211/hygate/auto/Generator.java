@@ -274,7 +274,21 @@ public class Generator
 			// Item does exist
 			if (Files.exists(file))
 			{
-				// Nothing to do here right now.
+				JsonElement element = readJson(file);
+				if (element != null)
+				{
+					JsonObject obj = Objects.requireNonNull(element.getAsJsonObject());
+					Item item = new Item().item(obj);
+					try
+					{
+						JsonObject object = item.build();
+						createItem(file, object);
+					}
+					catch (IllegalStateException e)
+					{
+						LOGGER.atSevere().log("Incomplete item to update for world " + world + ": " + e.getMessage());
+					}
+				}
 			}
 
 			// Item does not exist
@@ -282,10 +296,7 @@ public class Generator
 			{
 				String w = Objects.requireNonNull(world);
 				String worldGenType = worldGenType(w);
-				Item item = new Item()
-					.setWorld(w)
-					.setWorldGenType(worldGenType)
-				;
+				Item item = new Item().setWorld(w).setWorldGenType(worldGenType);
 				try
 				{
 					JsonObject object = item.build();
@@ -293,7 +304,7 @@ public class Generator
 				}
 				catch (IllegalStateException e)
 				{
-					LOGGER.atSevere().log("Incomplete item for world " + world + ": " + e.getMessage());
+					LOGGER.atSevere().log("Incomplete item to create for world " + world + ": " + e.getMessage());
 				}
 			}
 		}
@@ -313,7 +324,22 @@ public class Generator
 			// Item does exist but not in worlds
 			if (Files.exists(file) && !worlds.contains(world))
 			{
-				// TODO: Update item here, by making portal not passable.
+				JsonElement element = readJson(file);
+				if (element != null)
+				{
+					JsonObject obj = Objects.requireNonNull(element.getAsJsonObject());
+					// TODO: Make portal somehow inaccessible.
+					Item item2 = new Item().item(obj);
+					try
+					{
+						JsonObject object = item2.build();
+						createItem(file, object);
+					}
+					catch (IllegalStateException e)
+					{
+						LOGGER.atSevere().log("Incomplete item to update for orphan world " + world + ": " + e.getMessage());
+					}
+				}
 			}
 		}
 
@@ -348,31 +374,49 @@ public class Generator
 	}
 
 	/**
-	 * <b>World generator type</b>
+	 * <b>Read JSON</b>
 	 * <br/>
-	 * Read world generator type from given world.
-	 * @param world
-	 * @return
-	 * @throws IOException
+	 * Read given path as JSON into {@code JsonElement}.
+	 * @param path {@link Path}
+	 * @return {@link JsonElement}
+	 * @throws IOException If failed to read file or not exist.
 	 */
-	public @Nonnull String worldGenType(@Nonnull String world) throws IOException
+	public static JsonElement readJson(Path path) throws IOException
 	{
-		Path path = Paths.get("universe", "worlds", world, FILE_WORLD);
 		if (!Files.exists(path))
 		{
-			return "Unknown";
+			return null;
 		}
 		Gson gson = new Gson();
 		try (Reader reader = Files.newBufferedReader(path))
 		{
-			JsonObject root = gson.fromJson(reader, JsonObject.class);
-			if (root != null)
+			JsonElement element = gson.fromJson(reader, JsonElement.class);
+			if (element != null)
 			{
-				JsonElement worldGenType = Item.getPath(root, "WorldGen.Type");
-				if (worldGenType != null)
-				{
-					return Objects.requireNonNull(worldGenType.getAsString());
-				}
+				return element;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * <b>World generator type</b>
+	 * <br/>
+	 * Read world generator type from given world.
+	 * @param world {@link String}
+	 * @return {@link String}
+	 * @throws IOException If failed to read file or not exist.
+	 */
+	public @Nonnull String worldGenType(@Nonnull String world) throws IOException
+	{
+		Path path = Paths.get("universe", "worlds", world, FILE_WORLD);
+		var element = readJson(path);
+		if (element != null)
+		{
+			JsonElement worldGenType = Item.getPath(element.getAsJsonObject(), "WorldGen.Type");
+			if (worldGenType != null)
+			{
+				return Objects.requireNonNull(worldGenType.getAsString());
 			}
 		}
 		return "Unknown";
