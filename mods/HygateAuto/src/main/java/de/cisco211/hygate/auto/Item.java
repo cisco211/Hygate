@@ -16,6 +16,28 @@ import com.google.gson.JsonObject;
 public class Item
 {
 	/**
+	 * <b>File begin</b>
+	 */
+	public static final String FILE_BEGIN = "Hygate_Auto_";
+
+	/**
+	 * <b>File end</b>
+	 */
+	public static final String FILE_END = ".json";
+
+	/**
+	 * <b>Language extension</b>
+	 */
+	public static final String LANG_EXT = ".lang";
+
+	/**
+	 * <b>Language key</b>
+	 * <br/>
+	 * File name used for all embedded translations in this plugin.
+	 */
+	public static final String LANG_KEY = "hygate_auto_gen";
+
+	/**
 	 * <b>Label</b>
 	 * <br/>
 	 * Label that will be used to display the item.
@@ -133,8 +155,8 @@ public class Item
 	public static @Nonnull String itemToWorld(@Nonnull String item)
 	{
 		var world = item
-			.replace("Hygate_Auto_Gen_", "")
-			.replace(".json", "")
+			.replace(Item.FILE_BEGIN, "")
+			.replace(Item.FILE_END, "")
 		;
 		return Objects.requireNonNull(world);
 	}
@@ -174,11 +196,11 @@ public class Item
 			JsonObject translationProperties = new JsonObject();
 			{
 				{
-					String name = "hygate_auto_gen.items.Hygate_Auto_Gen_" + world + ".name";
+					String name = Item.LANG_KEY + ".items." + Item.FILE_BEGIN + world + ".name";
 					translationProperties.addProperty("Name", name);
 				}
 				{
-					String description = "hygate_auto_gen.items.Hygate_Auto_Gen_" + world + ".description";
+					String description = Item.LANG_KEY + ".items." + Item.FILE_BEGIN + world + ".description";
 					translationProperties.addProperty("Description", description);
 				}
 			}
@@ -437,7 +459,7 @@ public class Item
 
 		// Quality
 		{
-			String quality = "Uncommon";
+			String quality = "Rare";
 			object.addProperty("Quality", quality);
 		}
 

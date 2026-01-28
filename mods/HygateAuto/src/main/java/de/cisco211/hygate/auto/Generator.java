@@ -30,6 +30,16 @@ import com.hypixel.hytale.logger.HytaleLogger;
 public class Generator
 {
 	/**
+	 * <b>File manifest</b>
+	 */
+	public static final String FILE_MANIFEST = "manifest.json";
+
+	/**
+	 * <b>File world</b>
+	 */
+	public static final String FILE_WORLD = "config.json";
+
+	/**
 	 * <b>Logger</b>
 	 */
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
@@ -171,7 +181,7 @@ public class Generator
 	 */
 	protected void createManifest(Path path) throws IOException
 	{
-		Path manifestFile = path.resolve("manifest.json");
+		Path manifestFile = path.resolve(FILE_MANIFEST);
 		if (Files.notExists(manifestFile))
 		{
 			var mf = plugin.getManifest();
@@ -220,7 +230,7 @@ public class Generator
 	 */
 	protected void createTranslation(Path path) throws IOException
 	{
-		Path translationFile = path.resolve("hygate_auto_gen.lang");
+		Path translationFile = path.resolve(Item.LANG_KEY + Item.LANG_EXT);
 		if (Files.notExists(translationFile))
 		{
 			try (Writer writer = Files.newBufferedWriter(translationFile))
@@ -259,7 +269,7 @@ public class Generator
 		for (String world : worlds)
 		{
 			// Get path to item file
-			Path file = path.resolve("Hygate_Auto_Gen_" + world + ".json");
+			Path file = path.resolve(Item.FILE_BEGIN + world + Item.FILE_END);
 
 			// Item does exist
 			if (Files.exists(file))
@@ -330,7 +340,7 @@ public class Generator
 			return stream
 				.filter(Files::isRegularFile)
 				.map(path2 -> path2.getFileName().toString())
-				.filter(name -> name.startsWith("Hygate_Auto_Gen_"))
+				.filter(name -> name.startsWith(Item.FILE_BEGIN))
 				.sorted()
 				.collect(Collectors.toList())
 			;
@@ -347,7 +357,7 @@ public class Generator
 	 */
 	public @Nonnull String worldGenType(@Nonnull String world) throws IOException
 	{
-		Path path = Paths.get("universe", "worlds", world, "config.json");
+		Path path = Paths.get("universe", "worlds", world, FILE_WORLD);
 		if (!Files.exists(path))
 		{
 			return "Unknown";
