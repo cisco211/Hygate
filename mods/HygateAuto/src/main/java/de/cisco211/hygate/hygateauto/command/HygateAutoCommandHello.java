@@ -13,6 +13,7 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
+import de.cisco211.hygate.hygateauto.MessageEx;
 
 public class HygateAutoCommandHello extends AbstractPlayerCommand
 {
@@ -21,7 +22,7 @@ public class HygateAutoCommandHello extends AbstractPlayerCommand
 	public HygateAutoCommandHello(HygateAutoPlugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
-		var description = Objects.requireNonNull(plugin.translate("command.hello.description").param("plugin", paramPlugin).toString());
+		var description = Objects.requireNonNull(MessageEx.lngInfo("command.hello.description").param("plugin", paramPlugin).toString());
 		super("hello", description); // /hygate auto hello
 		this.plugin = plugin;
 	}
@@ -30,6 +31,6 @@ public class HygateAutoCommandHello extends AbstractPlayerCommand
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
-		ctx.sendMessage(plugin.translate("command.hello.output").param("plugin", paramPlugin));
+		ctx.sendMessage(MessageEx.lngInfo("command.hello.output").param("plugin", paramPlugin));
 	}
 }

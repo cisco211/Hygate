@@ -1,11 +1,8 @@
 package de.cisco211.hygate.hygateauto;
 
-import java.util.Objects;
-
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
@@ -75,16 +72,5 @@ public class HygateAutoPlugin extends JavaPlugin
 	{
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin start", this.identifier);
-	}
-
-	// Translate
-	/**
-	 * <b>Translate</b>
-	 * @param key String
-	 * @return @Nonnull Message
-	 */
-	public @Nonnull Message translate(String key)
-	{
-		return Message.translation(LANG_KEY + "." + Objects.requireNonNull(key));
 	}
 }

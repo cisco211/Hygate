@@ -14,6 +14,7 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
+import de.cisco211.hygate.hygateauto.MessageEx;
 
 public class HygateAutoCommandGenerate extends AbstractPlayerCommand
 {
@@ -22,7 +23,7 @@ public class HygateAutoCommandGenerate extends AbstractPlayerCommand
 	public HygateAutoCommandGenerate(HygateAutoPlugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
-		var description = Objects.requireNonNull(plugin.translate("command.generate.description").param("plugin", paramPlugin).toString());
+		var description = Objects.requireNonNull(MessageEx.lngInfo("command.generate.description").param("plugin", paramPlugin).toString());
 		super("generate", description); // /hygate auto generate
 		this.plugin = plugin;
 	}
@@ -36,19 +37,19 @@ public class HygateAutoCommandGenerate extends AbstractPlayerCommand
 			{
 				var result =
 					plugin.generator.generate()
-					? plugin.translate("command.generate.success")
-					: plugin.translate("command.generate.failed")
+					? MessageEx.lngOk("command.generate.success")
+					: MessageEx.lngErr("command.generate.failed")
 				;
 				ctx.sendMessage(result);
 			}
 			catch (IOException e)
 			{
 				var message = Objects.requireNonNull(e.getMessage());
-				var result = plugin.translate("command.generate.failed_with").param("message", message);
+				var result = MessageEx.lngErr("command.generate.failed_with").param("message", message);
 				ctx.sendMessage(result);
 			}
 		}
 		else
-			ctx.sendMessage(plugin.translate("command.generate.no_permission"));
+			ctx.sendMessage(MessageEx.lngErr("command.generate.no_permission"));
 	}
 }

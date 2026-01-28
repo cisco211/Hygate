@@ -14,6 +14,7 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
+import de.cisco211.hygate.hygateauto.MessageEx;
 
 public class HygateAutoCommandWorlds extends AbstractPlayerCommand
 {
@@ -22,7 +23,7 @@ public class HygateAutoCommandWorlds extends AbstractPlayerCommand
 	public HygateAutoCommandWorlds(HygateAutoPlugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
-		var description = Objects.requireNonNull(plugin.translate("command.worlds.description").param("plugin", paramPlugin).toString());
+		var description = Objects.requireNonNull(MessageEx.lngInfo("command.worlds.description").param("plugin", paramPlugin).toString());
 		super("worlds", description); // /hygate auto worlds
 		this.plugin = plugin;
 	}
@@ -35,17 +36,17 @@ public class HygateAutoCommandWorlds extends AbstractPlayerCommand
 			var list = plugin.generator.worldsFormatted();
 			if (list.isEmpty())
 			{
-				ctx.sendMessage(plugin.translate("command.items.empty"));
+				ctx.sendMessage(MessageEx.lngWarn("command.items.empty"));
 				return;
 			}
 			var count = Objects.requireNonNull(String.valueOf(list.size()));
 			var worlds = Objects.requireNonNull(String.join(", ", list));
-			ctx.sendMessage(plugin.translate("command.worlds.success").param("count", count).param("worlds", worlds));
+			ctx.sendMessage(MessageEx.lngOk("command.worlds.success").param("count", count).param("worlds", worlds));
 		}
 		catch (IOException e)
 		{
 			var error = Objects.requireNonNull(e.toString());
-			ctx.sendMessage(plugin.translate("command.worlds.error").param("error", error));
+			ctx.sendMessage(MessageEx.lngErr("command.worlds.error").param("error", error));
 		}
 	}
 }
