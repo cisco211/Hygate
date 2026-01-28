@@ -18,6 +18,7 @@ import javax.annotation.Nonnull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.hypixel.hytale.logger.HytaleLogger;
@@ -198,7 +199,17 @@ public class Generator
 				}
 				String pascalKey = key.substring(0, 1).toUpperCase() + key.substring(1);
 				JsonElement value = entry.getValue();
-				if (key.equalsIgnoreCase("dependencies"))
+				if (key.equalsIgnoreCase("authors"))
+				{
+					var arr = new JsonArray();
+					var obj = new JsonObject();
+					obj.addProperty("Name", "Cisco211");
+					obj.addProperty("Email", "TjSBMD1810@yahoo.de");
+					obj.addProperty("Url", "https://cisco211.de/");
+					arr.add(obj);
+					newObj.add(pascalKey, arr);
+				}
+				else if (key.equalsIgnoreCase("dependencies"))
 				{
 					var obj = new JsonObject();
 					//obj.addProperty("Hytale:AssetModule", "*");
