@@ -11,7 +11,13 @@ command.generate.failed_with = "Failed to generate Hygate's! With: {message}"
 command.generate.no_permission = "No permission to use this command!"
 command.generate.success = "Hygate's generated!"
 
+command.items.description = "{plugin} items command."
+command.items.empty = "No available Hygate items."
+command.items.error = "Failed to list available Hygate items: {error}"
+command.items.success = "Available Hygate items ({count}): {items}"
+
 command.worlds.description = "{plugin} worlds command."
+command.worlds.empty = "No suitable Hygate worlds."
 command.worlds.error = "Failed to list suitable Hygate worlds: {error}"
 command.worlds.success = "Suitable Hygate worlds ({count}): {worlds}"
 

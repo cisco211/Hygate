@@ -15,6 +15,7 @@ public class HygateAutoCommand extends AbstractCommandCollection
 		super("auto", description); // /hygate auto
 		this.addSubCommand(new HygateAutoCommandGenerate(plugin));
 		this.addSubCommand(new HygateAutoCommandHello(plugin));
+		this.addSubCommand(new HygateAutoCommandItems(plugin));
 		this.addSubCommand(new HygateAutoCommandWorlds(plugin));
 	}
 }

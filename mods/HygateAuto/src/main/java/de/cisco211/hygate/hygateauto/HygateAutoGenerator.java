@@ -228,6 +228,32 @@ public class HygateAutoGenerator
 	}
 
 	/**
+	 * <b>Items</b>
+	 * <br/>
+	 * Read available hygate items from Portal directory.
+	 * @return List<String>
+	 * @throws IOException
+	 */
+	public List<String> items() throws IOException
+	{
+		if (plugin.debug)
+		{
+			LOGGER.atInfo().log("%s:Generator items", plugin.identifier);
+		}
+		Path rootPath = Paths.get("mods", packageName, "Server", "Item", "Items", "Portal");
+		try (Stream<Path> stream = Files.list(rootPath))
+		{
+			return stream
+				.filter(Files::isRegularFile)
+				.map(path2 -> path2.getFileName().toString())
+				.filter(name -> name.startsWith("Hygate_Auto_"))
+				.sorted()
+				.collect(Collectors.toList())
+			;
+		}
+	}
+
+	/**
 	 * <b>Worlds</b>
 	 * <br/>
 	 * Read suitable worlds from universe/worlds directory.
