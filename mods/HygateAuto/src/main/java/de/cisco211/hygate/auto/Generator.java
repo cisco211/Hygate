@@ -1,10 +1,12 @@
 package de.cisco211.hygate.auto;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -147,6 +149,22 @@ public class Generator
 	}
 
 	/**
+	 * <b>Create item</b>
+	 * @param path {@link Path}
+	 * @param object {@link JsonObject}
+	 * @throws IOException If item file creation failed.
+	 */
+	protected void createItem(Path path, @Nonnull JsonObject object) throws IOException
+	{
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		try (Writer writer = Files.newBufferedWriter(path, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING))
+		{
+			gson.toJson(object, writer);
+			LOGGER.atInfo().log("Created item: %s", path.toAbsolutePath());
+		}
+	}
+
+	/**
 	 * <b>Create manifest</b>
 	 * @param path {@link Path}
 	 * @throws IOException If manifest file creation failed.
@@ -234,11 +252,62 @@ public class Generator
 		// Get available worlds
 		var worlds = worlds();
 
-		// TODO: Do something with the worlds.
-		if (plugin.debug)
-			LOGGER.atInfo().log("%s", String.join(", ", worlds));
+		// Get path
+		var path = Paths.get("mods", packageName, "Server", "Item", "Items", "Portal");
 
-		// TODO: Rebuild items and their translation here.
+		// Iterate over worlds
+		for (String world : worlds)
+		{
+			// Get path to item file
+			Path file = path.resolve("Hygate_Auto_Gen_" + world + ".json");
+
+			// Item does exist
+			if (Files.exists(file))
+			{
+				// Nothing to do here right now.
+			}
+
+			// Item does not exist
+			else
+			{
+				String w = Objects.requireNonNull(world);
+				String worldGenType = worldGenType(w);
+				Item item = new Item()
+					.setWorld(w)
+					.setWorldGenType(worldGenType)
+				;
+				try
+				{
+					JsonObject object = item.build();
+					createItem(file, object);
+				}
+				catch (IllegalStateException e)
+				{
+					LOGGER.atSevere().log("Incomplete item for world " + world + ": " + e.getMessage());
+				}
+			}
+		}
+
+		// Get available items
+		var items = items();
+
+		// Iterate over items
+		for (String item : items)
+		{
+			// Get path to item file
+			Path file = path.resolve(item);
+
+			// Get world from item
+			String world = Item.itemToWorld(Objects.requireNonNull(item));
+
+			// Item does exist but not in worlds
+			if (Files.exists(file) && !worlds.contains(world))
+			{
+				// TODO: Update item here, by making portal not passable.
+			}
+		}
+
+		// Done
 		return false;
 	}
 
@@ -261,11 +330,42 @@ public class Generator
 			return stream
 				.filter(Files::isRegularFile)
 				.map(path2 -> path2.getFileName().toString())
-				.filter(name -> name.startsWith("Hygate_Auto_"))
+				.filter(name -> name.startsWith("Hygate_Auto_Gen_"))
 				.sorted()
 				.collect(Collectors.toList())
 			;
 		}
+	}
+
+	/**
+	 * <b>World generator type</b>
+	 * <br/>
+	 * Read world generator type from given world.
+	 * @param world
+	 * @return
+	 * @throws IOException
+	 */
+	public @Nonnull String worldGenType(@Nonnull String world) throws IOException
+	{
+		Path path = Paths.get("universe", "worlds", world, "config.json");
+		if (!Files.exists(path))
+		{
+			return "Unknown";
+		}
+		Gson gson = new Gson();
+		try (Reader reader = Files.newBufferedReader(path))
+		{
+			JsonObject root = gson.fromJson(reader, JsonObject.class);
+			if (root != null)
+			{
+				JsonElement worldGenType = Item.getPath(root, "WorldGen.Type");
+				if (worldGenType != null)
+				{
+					return Objects.requireNonNull(worldGenType.getAsString());
+				}
+			}
+		}
+		return "Unknown";
 	}
 
 	/**

@@ -5,6 +5,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 /**
@@ -47,6 +48,96 @@ public class Item
 	 */
 	public Item()
 	{}
+
+	/**
+	 * <b>Get path</b>
+	 * <br/>
+	 * Get JSON element from given path in input.
+	 * @param input {@link JsonObject}
+	 * @param path {@link String}
+	 * @return {@link JsonElement} Found element or null, when not found.
+	 */
+	public static JsonElement getPath(JsonObject input, String path)
+	{
+		if (input == null || path == null || path.isEmpty())
+		{
+			return null;
+		}
+		String[] parts = path.split("\\.");
+		JsonElement current = input;
+		for (String part : parts)
+		{
+			if (current == null || current.isJsonNull())
+			{
+				return null;
+			}
+			if (current.isJsonObject())
+			{
+				current = current.getAsJsonObject().get(part);
+			}
+			else if (current.isJsonArray())
+			{
+				try
+				{
+					int index = Integer.parseInt(part);
+					JsonArray array = current.getAsJsonArray();
+					current = (index >= 0 && index < array.size()) ? array.get(index) : null;
+				}
+				catch (NumberFormatException e)
+				{
+					return null;
+				}
+			}
+			else
+			{
+				return null;
+			}
+		}
+		return current;
+	}
+
+	/**
+	 * <b>Item</b>
+	 * <br/>
+	 * Extracts and sets members from members found in given, object.
+	 * @param object {@link JsonObject}
+	 * @return {@link Item}
+	 */
+	public @Nonnull Item item(@Nonnull JsonObject object)
+	{
+		// Extract world name
+		var worldName = getPath(object, "BlockType.Interactions.CollisionEnter.Interactions.0.WorldName");
+		if (worldName != null)
+		{
+			this.world = worldName.getAsString();
+		}
+
+		// Extract world gen type
+		var worldGenType = getPath(object, "BlockType.Interactions.CollisionEnter.Interactions.0.WorldName");
+		if (worldGenType != null)
+		{
+			this.worldGenType = worldGenType.getAsString();
+		}
+
+		// Done
+		return this;
+	}
+
+	/**
+	 * <b>Item to world</b>
+	 * <br/>
+	 * Turns an item (file) into a world.
+	 * @param item {@link String}
+	 * @return {@link String}
+	 */
+	public static @Nonnull String itemToWorld(@Nonnull String item)
+	{
+		var world = item
+			.replace("Hygate_Auto_Gen_", "")
+			.replace(".json", "")
+		;
+		return Objects.requireNonNull(world);
+	}
 
 	/**
 	 * <b>Build</b>
@@ -262,8 +353,8 @@ public class Item
 						// CollisionEnter
 						JsonObject collisionEnter = new JsonObject();
 						{
-							// Interaction
-							JsonArray interaction = new JsonArray();
+							// Interactions
+							JsonArray interactions2 = new JsonArray();
 							{
 								// {}
 								JsonObject entry = new JsonObject();
@@ -306,9 +397,9 @@ public class Item
 										entry.add("Next", next);
 									}
 								}
-								interaction.add(entry);
+								interactions2.add(entry);
 							}
-							collisionEnter.add("Interaction", interaction);
+							collisionEnter.add("Interactions", interactions2);
 						}
 						interactions.add("CollisionEnter", collisionEnter);
 					}
