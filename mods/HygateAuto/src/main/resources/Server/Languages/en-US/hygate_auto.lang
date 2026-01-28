@@ -1,6 +1,6 @@
 # === HygateAuto Commands ===
-commands0 = "Hygate commands".
-commands1 = "{plugin} commands."
+collection = "{plugin} commands."
+commands = "Hygate commands".
 
 command.hello.description = "{plugin} hello command."
 command.hello.output = "Hello from {plugin} plugin!"

@@ -6,9 +6,9 @@ import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
-import de.cisco211.hygate.hygateauto.command.HygateCommand;
+import de.cisco211.hygate.hygateauto.command.Command;
 
-public class HygateAutoPlugin extends JavaPlugin
+public class Plugin extends JavaPlugin
 {
 	protected static final String LANG_KEY = "hygate_auto";
 
@@ -16,7 +16,7 @@ public class HygateAutoPlugin extends JavaPlugin
 
 	public final boolean debug = true;
 
-	public final HygateAutoGenerator generator;
+	public final Generator generator;
 
 	public final String identifier;
 
@@ -26,14 +26,14 @@ public class HygateAutoPlugin extends JavaPlugin
 	 * Called after plugin being loaded in.
 	 * @param init @Nonnull JavaPluginInit
 	 */
-	public HygateAutoPlugin(@Nonnull JavaPluginInit init)
+	public Plugin(@Nonnull JavaPluginInit init)
 	{
 		super(init);
 		this.identifier = this.getName(); // C: Must happen at very first
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin constructor", this.identifier);
 
-		this.generator = new HygateAutoGenerator(this);
+		this.generator = new Generator(this);
 		generator.create();
 	}
 
@@ -45,7 +45,7 @@ public class HygateAutoPlugin extends JavaPlugin
 	@Override
 	protected void setup()
 	{
-		this.getCommandRegistry().registerCommand(new HygateCommand(this));
+		this.getCommandRegistry().registerCommand(new Command(this));
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin setup", this.identifier);
 	}

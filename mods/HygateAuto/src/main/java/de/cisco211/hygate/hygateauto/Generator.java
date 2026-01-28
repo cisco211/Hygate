@@ -19,19 +19,19 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.hypixel.hytale.logger.HytaleLogger;
 
-public class HygateAutoGenerator
+public class Generator
 {
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
 	protected final String packageName;
 
-	protected final HygateAutoPlugin plugin;
+	protected final Plugin plugin;
 
 	/**
 	 * <b>Constructor</b>
-	 * @param plugin @Nonnull HygateAutoPlugin
+	 * @param plugin @Nonnull Plugin
 	 */
-	public HygateAutoGenerator(@Nonnull HygateAutoPlugin plugin)
+	public Generator(@Nonnull Plugin plugin)
 	{
 		this.packageName = plugin.getManifest().getName() + "Gen";
 		this.plugin = plugin;

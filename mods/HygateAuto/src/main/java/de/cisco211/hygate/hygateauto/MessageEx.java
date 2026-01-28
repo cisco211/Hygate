@@ -13,6 +13,11 @@ import com.hypixel.hytale.server.core.Message;
  */
 public class MessageEx
 {
+	/**
+	 * <b>Constructor</b>
+	 * <br/>
+	 * Utility class with static functions only.
+	 */
 	private MessageEx()
 	{}
 

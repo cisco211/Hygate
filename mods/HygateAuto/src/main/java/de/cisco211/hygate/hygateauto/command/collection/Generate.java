@@ -1,4 +1,4 @@
-package de.cisco211.hygate.hygateauto.command;
+package de.cisco211.hygate.hygateauto.command.collection;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -13,14 +13,14 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import de.cisco211.hygate.hygateauto.HygateAutoPlugin;
+import de.cisco211.hygate.hygateauto.Plugin;
 import de.cisco211.hygate.hygateauto.MessageEx;
 
-public class HygateAutoCommandGenerate extends AbstractPlayerCommand
+public class Generate extends AbstractPlayerCommand
 {
-	protected final HygateAutoPlugin plugin;
+	protected final Plugin plugin;
 
-	public HygateAutoCommandGenerate(HygateAutoPlugin plugin)
+	public Generate(Plugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
 		var description = Objects.requireNonNull(MessageEx.lngInfo("command.generate.description").param("plugin", paramPlugin).toString());
