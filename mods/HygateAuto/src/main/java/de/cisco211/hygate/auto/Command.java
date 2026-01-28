@@ -1,11 +1,10 @@
-package de.cisco211.hygate.hygateauto.command;
+package de.cisco211.hygate.auto;
 
 import java.util.Objects;
 
 import com.hypixel.hytale.server.core.command.system.basecommands.AbstractCommandCollection;
 
-import de.cisco211.hygate.hygateauto.Plugin;
-import de.cisco211.hygate.hygateauto.MessageEx;
+import de.cisco211.hygate.auto.command.Collection;
 
 public class Command extends AbstractCommandCollection
 {

@@ -1,12 +1,10 @@
-package de.cisco211.hygate.hygateauto;
+package de.cisco211.hygate.auto;
 
 import javax.annotation.Nonnull;
 
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-
-import de.cisco211.hygate.hygateauto.command.Command;
 
 public class Plugin extends JavaPlugin
 {

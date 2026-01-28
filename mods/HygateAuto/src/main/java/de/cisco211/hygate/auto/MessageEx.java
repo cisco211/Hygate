@@ -1,4 +1,4 @@
-package de.cisco211.hygate.hygateauto;
+package de.cisco211.hygate.auto;
 
 import java.util.Objects;
 

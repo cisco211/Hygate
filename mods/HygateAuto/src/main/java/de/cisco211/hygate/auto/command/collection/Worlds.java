@@ -1,4 +1,4 @@
-package de.cisco211.hygate.hygateauto.command.collection;
+package de.cisco211.hygate.auto.command.collection;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -13,8 +13,8 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
-import de.cisco211.hygate.hygateauto.Plugin;
-import de.cisco211.hygate.hygateauto.MessageEx;
+import de.cisco211.hygate.auto.Plugin;
+import de.cisco211.hygate.auto.MessageEx;
 
 public class Worlds extends AbstractPlayerCommand
 {
