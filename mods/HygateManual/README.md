@@ -10,7 +10,7 @@ Pretty self explaining.
 ## Usage
 * Inside `Server/Item/Items/Portal` you will see some example portals.
   Just copy them, rename them and alter its contents.
-* In `Server/Languages/en-US/server.lang` you can configure the translations
+* In `Server/Languages/en-US/hygate_manual.lang` you can configure the translations
   for the portals (name and description).
 * You can even edit them while the game/server is running,
   the game detects the changes and automatically updates them.
