@@ -38,13 +38,6 @@ public class Item
 	public static final String LANG_KEY = "hygate_auto_gen";
 
 	/**
-	 * <b>Label</b>
-	 * <br/>
-	 * Label that will be used to display the item.
-	 */
-	protected String label = "";
-
-	/**
 	 * <b>Object</b>
 	 * <br/>
 	 * The JSON object holding the item data.
@@ -185,22 +178,16 @@ public class Item
 			throw new IllegalStateException("World generator type not set!");
 		}
 
-		// Generate label, if it is still empty
-		if (label.isEmpty())
-		{
-			label = worldToLabel(Objects.requireNonNull(world));
-		}
-
 		// TranslationProperties
 		{
 			JsonObject translationProperties = new JsonObject();
 			{
 				{
-					String name = Item.LANG_KEY + ".items." + Item.FILE_BEGIN + world + ".name";
+					String name = LANG_KEY + ".items." + FILE_BEGIN + world + ".name";
 					translationProperties.addProperty("Name", name);
 				}
 				{
-					String description = Item.LANG_KEY + ".items." + Item.FILE_BEGIN + world + ".description";
+					String description = LANG_KEY + ".items." + FILE_BEGIN + world + ".description";
 					translationProperties.addProperty("Description", description);
 				}
 			}
@@ -503,19 +490,6 @@ public class Item
 	}
 
 	/**
-	 * <b>Set Label</b>
-	 * <br/>
-	 * Set label that will be used to display the item.
-	 * @param label {@link String}
-	 * @return {@link Item}
-	 */
-	public @Nonnull Item setLabel(@Nonnull String label)
-	{
-		this.label = label;
-		return this;
-	}
-
-	/**
 	 * <b>Set world</b>
 	 * <br/>
 	 * Set world that defines where the portal will point to.
@@ -525,10 +499,6 @@ public class Item
 	public @Nonnull Item setWorld(@Nonnull String world)
 	{
 		this.world = world;
-		if (label.isEmpty())
-		{
-			this.label = worldToLabel(world);
-		}
 		return this;
 	}
 

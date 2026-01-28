@@ -200,7 +200,9 @@ public class Generator
 				JsonElement value = entry.getValue();
 				if (key.equalsIgnoreCase("dependencies"))
 				{
-					newObj.add(pascalKey, new JsonObject());
+					var obj = new JsonObject();
+					//obj.addProperty("Hytale:AssetModule", "*");
+					newObj.add(pascalKey, obj);
 				}
 				else if (key.equalsIgnoreCase("name"))
 				{
@@ -210,12 +212,16 @@ public class Generator
 				{
 					newObj.addProperty(pascalKey, mf.getVersion().toString());
 				}
+				else if (key.equalsIgnoreCase("includesAssetPack"))
+				{
+					newObj.addProperty(pascalKey, false);
+				}
 				else
 				{
 					newObj.add(pascalKey, value);
 				}
 			}
-			try (Writer writer = Files.newBufferedWriter(manifestFile))
+			try (Writer writer = Files.newBufferedWriter(manifestFile, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING))
 			{
 				gson.toJson(newObj, writer);
 				LOGGER.atInfo().log("Created manifest: %s", manifestFile.toAbsolutePath());
@@ -231,16 +237,9 @@ public class Generator
 	protected void createTranslation(Path path) throws IOException
 	{
 		Path translationFile = path.resolve(Item.LANG_KEY + Item.LANG_EXT);
-		if (Files.notExists(translationFile))
+		if (!Files.exists(translationFile))
 		{
-			try (Writer writer = Files.newBufferedWriter(translationFile))
-			{
-				writer.write("# === " + packageName + " Items ===\n");
-				writer.write("\n");
-				writer.write("\n");
-				writer.write("# ~EOF\n");
-				LOGGER.atInfo().log("Created translation: %s", translationFile.toAbsolutePath());
-			}
+			writeTranslation(path, null);
 		}
 	}
 
@@ -343,8 +342,11 @@ public class Generator
 			}
 		}
 
+		// Write translation
+		writeTranslation(Paths.get("mods", packageName, "Languages", "en-US"), items);
+
 		// Done
-		return false;
+		return true;
 	}
 
 	/**
@@ -453,7 +455,7 @@ public class Generator
 	 * <br/>
 	 * List suitable worlds being formatted nicely.
 	 * @return {@link List} &lt;{@link String}&gt; List of formatted world directory names.
-	 * TODO: Add list view, when items can fit in chat, else do string join.
+	 * // TODO: Add list view, when items can fit in chat, else do string join.
 	 */
 	public List<String> worldsFormatted() throws IOException
 	{
@@ -470,4 +472,35 @@ public class Generator
 		worlds.sort(null);
 		return worlds;
 	}
+
+	/**
+	 * <b>Write translation</b>
+	 * @param path {@link Path}
+	 * @throws IOException If translation file write failed.
+	 */
+	protected void writeTranslation(Path path, List<String> items) throws IOException
+	{
+		Path translationFile = path.resolve(Item.LANG_KEY + Item.LANG_EXT);
+		try (Writer writer = Files.newBufferedWriter(translationFile, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING))
+		{
+			writer.write("# === " + packageName + " Items ===\n");
+			if (items != null)
+			{
+				for (String item : items)
+				{
+					String world = Item.itemToWorld(Objects.requireNonNull(item));
+					String label = Item.worldToLabel(world);
+					String keyName = "items." + Item.FILE_BEGIN + world + ".name";
+					writer.write(keyName + " = \"Hygate: " + label + "\"\n");
+					String keyDescription = "items." + Item.FILE_BEGIN + world + ".description";
+					writer.write(keyDescription + " = \"Teleports you to the world '" + label + "'\"\n");
+					writer.write("\n");
+				}
+			}
+			writer.write("\n");
+			writer.write("# ~EOF\n");
+			LOGGER.atInfo().log("Created translation: %s", translationFile.toAbsolutePath());
+		}
+	}
+
 }
