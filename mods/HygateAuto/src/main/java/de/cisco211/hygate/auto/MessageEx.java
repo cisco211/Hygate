@@ -32,8 +32,8 @@ public class MessageEx
 	 * <b>Lng</b>
 	 * <br/>
 	 * Translate into language by key.
-	 * @param key String
-	 * @return @Nonnull Message
+	 * @param key {@link String}
+	 * @return Message
 	 */
 	public static @Nonnull Message lng(String key)
 	{
@@ -44,8 +44,8 @@ public class MessageEx
 	 * <b>LngErr</b>
 	 * <br/>
 	 * Translate into language as error.
-	 * @param key String
-	 * @return @Nonnull Message
+	 * @param key {@link String}
+	 * @return Message
 	 */
 	public static @Nonnull Message lngErr(String key)
 	{
@@ -56,6 +56,8 @@ public class MessageEx
 	 * <b>LngInfo</b>
 	 * <br/>
 	 * Translate into language as info.
+	 * @param key {@link String}
+	 * @return Message
 	 */
 	public static @Nonnull Message lngInfo(String key)
 	{
@@ -66,8 +68,8 @@ public class MessageEx
 	 * <b>LngWarn</b>
 	 * <br/>
 	 * Translate into language as warning.
-	 * @param key String
-	 * @return @Nonnull Message
+	 * @param key {@link String}
+	 * @return Message
 	 */
 	public static @Nonnull Message lngWarn(String key)
 	{
@@ -78,8 +80,8 @@ public class MessageEx
 	 * <b>LngOk</b>
 	 * <br/>
 	 * Translate into language as success.
-	 * @param key String
-	 * @return @Nonnull Message
+	 * @param key {@link String}
+	 * @return Message
 	 */
 	public static @Nonnull Message lngOk(String key)
 	{

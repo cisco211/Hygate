@@ -6,23 +6,44 @@ import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
+/**
+ * <b>Plugin</b>
+ * <br/>
+ * HygateAuto plugin main entry point.
+ */
 public class Plugin extends JavaPlugin
 {
-	protected static final String LANG_KEY = "hygate_auto";
-
+	/**
+	 * <b>Logger</b>
+	 */
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
+	/**
+	 * <b>Debug</b>
+	 * <br/>
+	 * Debug flag for call hints in logs.
+	 */
 	public final boolean debug = true;
 
+	/**
+	 * <b>Generator</b>
+	 * <br/>
+	 * The mod pack generator.
+	 */
 	public final Generator generator;
 
+	/**
+	 * <b>Identifier</b>
+	 * <br/>
+	 * Plugin identifier.
+	 */
 	public final String identifier;
 
 	/**
 	 * <b>Constructor</b>
 	 * <br/>
 	 * Called after plugin being loaded in.
-	 * @param init @Nonnull JavaPluginInit
+	 * @param init {@link JavaPluginInit}
 	 */
 	public Plugin(@Nonnull JavaPluginInit init)
 	{

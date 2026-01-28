@@ -16,10 +16,22 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import de.cisco211.hygate.auto.Plugin;
 import de.cisco211.hygate.auto.MessageEx;
 
+/**
+ * <b>Worlds</b>
+ * <br/>
+ * Hygate auto worlds command {@code /hygate auto worlds}.
+ */
 public class Worlds extends AbstractPlayerCommand
 {
+	/**
+	 * <b>Plugin</b>
+	 */
 	protected final Plugin plugin;
 
+	/**
+	 * <b>Constructor</b>
+	 * @param plugin {@link Plugin}
+	 */
 	public Worlds(Plugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());
@@ -28,6 +40,16 @@ public class Worlds extends AbstractPlayerCommand
 		this.plugin = plugin;
 	}
 
+	/**
+	 * <b>Execute</b>
+	 * <br/>
+	 * Executes the command.
+	 * @param ctx {@link CommandContext}
+	 * @param entityStore {@link Store} &lt;{@link EntityStore}&gt;
+	 * @param entityRef {@link Ref} &lt;{@link EntityStore}&gt;
+	 * @param playerRef {@link PlayerRef}
+	 * @param world {@link World}
+	 */
 	@Override
 	protected void execute(@Nonnull CommandContext ctx, @Nonnull Store<EntityStore> entityStore, @Nonnull Ref<EntityStore> entityRef, @Nonnull PlayerRef playerRef, @Nonnull World world)
 	{

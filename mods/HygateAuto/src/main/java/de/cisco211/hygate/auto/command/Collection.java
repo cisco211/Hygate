@@ -11,8 +11,17 @@ import de.cisco211.hygate.auto.command.collection.Hello;
 import de.cisco211.hygate.auto.command.collection.Items;
 import de.cisco211.hygate.auto.command.collection.Worlds;
 
+/**
+ * <b>Collection</b>
+ * <br/>
+ * Hygate auto command {@code /hygate auto}.
+ */
 public class Collection extends AbstractCommandCollection
 {
+	/**
+	 * Constructor
+	 * @param plugin {@link Plugin}
+	 */
 	public Collection(Plugin plugin)
 	{
 		var paramPlugin = Objects.requireNonNull(plugin.getManifest().getName());

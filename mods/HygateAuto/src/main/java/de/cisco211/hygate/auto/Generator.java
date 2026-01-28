@@ -19,17 +19,31 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.hypixel.hytale.logger.HytaleLogger;
 
+/**
+ * <b>Generator</b>
+ * <br/>
+ * The mod pack generator.
+ */
 public class Generator
 {
+	/**
+	 * <b>Logger</b>
+	 */
 	protected static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
+	/**
+	 * <b>Package name</b>
+	 */
 	protected final String packageName;
 
+	/**
+	 * <b>Plugin</b>
+	 */
 	protected final Plugin plugin;
 
 	/**
 	 * <b>Constructor</b>
-	 * @param plugin @Nonnull Plugin
+	 * @param plugin {@link Plugin}
 	 */
 	public Generator(@Nonnull Plugin plugin)
 	{
@@ -118,8 +132,8 @@ public class Generator
 
 	/**
 	 * <b>Create directory</b>
-	 * @param path Path
-	 * @throws IOException
+	 * @param path {@link Path}
+	 * @throws IOException If directory creation of given path failed.
 	 */
 	protected void createDirectory(Path path) throws IOException
 	{
@@ -133,8 +147,8 @@ public class Generator
 
 	/**
 	 * <b>Create manifest</b>
-	 * @param path Path
-	 * @throws IOException
+	 * @param path {@link Path}
+	 * @throws IOException If manifest file creation failed.
 	 */
 	protected void createManifest(Path path) throws IOException
 	{
@@ -182,8 +196,8 @@ public class Generator
 
 	/**
 	 * <b>Create translation</b>
-	 * @param path Path
-	 * @throws IOException
+	 * @param path {@link Path}
+	 * @throws IOException If translation file creation failed.
 	 */
 	protected void createTranslation(Path path) throws IOException
 	{
@@ -205,8 +219,8 @@ public class Generator
 	 * <b>Generate</b>
 	 * <br/>
 	 * Generates the gateway portal items.
-	 * @return boolean
-	 * @throws IOException
+	 * @return boolean Generation succeeded or failed.
+	 * @throws IOException If writing of Hygate item files failed.
 	 */
 	public boolean generate() throws IOException
 	{
@@ -230,9 +244,9 @@ public class Generator
 	/**
 	 * <b>Items</b>
 	 * <br/>
-	 * Read available hygate items from Portal directory.
-	 * @return List<String>
-	 * @throws IOException
+	 * Read available Hygate items from Portal directory.
+	 * @return List<String> List of hygate item file names.
+	 * @throws IOException If listing of Hygate item files in Item/Items/Portal directory failed.
 	 */
 	public List<String> items() throws IOException
 	{
@@ -257,8 +271,8 @@ public class Generator
 	 * <b>Worlds</b>
 	 * <br/>
 	 * Read suitable worlds from universe/worlds directory.
-	 * @return List<String>
-	 * @throws IOException
+	 * @return List<String> List of world directory names.
+	 * @throws IOException If listing of world directories in universe/worlds directory failed.
 	 */
 	public List<String> worlds() throws IOException
 	{
@@ -283,7 +297,7 @@ public class Generator
 	 * <b>Worlds formatted</b>
 	 * <br/>
 	 * List suitable worlds being formatted nicely.
-	 * @return List<String>
+	 * @return List<String> List of formatted world directory names.
 	 * TODO: Add list view, when items can fit in chat, else do string join.
 	 */
 	public List<String> worldsFormatted() throws IOException
