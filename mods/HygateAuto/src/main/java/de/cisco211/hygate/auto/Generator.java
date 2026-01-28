@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -310,9 +311,7 @@ public class Generator
 		var worlds = new ArrayList<String>(list.size());
 		for (String world : list)
 		{
-			String formatted = world.replace('_', ' ');
-			formatted = formatted.substring(0, 1).toUpperCase() + formatted.substring(1);
-			worlds.add(formatted);
+			worlds.add(Item.worldToLabel(Objects.requireNonNull(world)));
 		}
 		worlds.sort(null);
 		return worlds;
