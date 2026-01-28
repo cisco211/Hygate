@@ -245,7 +245,7 @@ public class Generator
 	 * <b>Items</b>
 	 * <br/>
 	 * Read available Hygate items from Portal directory.
-	 * @return List<String> List of hygate item file names.
+	 * @return {@link List} &lt;{@link String}&gt; List of hygate item file names.
 	 * @throws IOException If listing of Hygate item files in Item/Items/Portal directory failed.
 	 */
 	public List<String> items() throws IOException
@@ -271,7 +271,7 @@ public class Generator
 	 * <b>Worlds</b>
 	 * <br/>
 	 * Read suitable worlds from universe/worlds directory.
-	 * @return List<String> List of world directory names.
+	 * @return {@link List} &lt;{@link String}&gt; List of world directory names.
 	 * @throws IOException If listing of world directories in universe/worlds directory failed.
 	 */
 	public List<String> worlds() throws IOException
@@ -297,7 +297,7 @@ public class Generator
 	 * <b>Worlds formatted</b>
 	 * <br/>
 	 * List suitable worlds being formatted nicely.
-	 * @return List<String> List of formatted world directory names.
+	 * @return {@link List} &lt;{@link String}&gt; List of formatted world directory names.
 	 * TODO: Add list view, when items can fit in chat, else do string join.
 	 */
 	public List<String> worldsFormatted() throws IOException
