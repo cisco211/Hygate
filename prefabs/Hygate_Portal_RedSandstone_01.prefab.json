@@ -9,100 +9,109 @@
       "x": -4,
       "y": 0,
       "z": -1,
-      "name": "*Rock_Aqua_Brick_Wall_State_Definitions_Corner",
+      "name": "*Rock_Sandstone_Red_Brick_Wall_State_Definitions_Corner",
       "rotation": 1
     },
     {
       "x": -4,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Wall",
-      "rotation": 1
+      "name": "Rock_Sandstone_Red_Brick_Wall",
+      "rotation": 3
     },
     {
       "x": -4,
       "y": 0,
       "z": 1,
-      "name": "*Rock_Aqua_Brick_Wall_State_Definitions_Corner",
+      "name": "*Rock_Sandstone_Red_Brick_Wall_State_Definitions_Corner",
       "rotation": 2
     },
     {
       "x": -3,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Wall"
+      "name": "Rock_Sandstone_Red_Brick_Wall",
+      "rotation": 2
     },
     {
       "x": -3,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 3
     },
     {
       "x": -3,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -3,
       "y": 1,
       "z": 0,
-      "name": "Furniture_Human_Ruins_Brazier"
+      "name": "Furniture_Jungle_Brazier"
     },
     {
       "x": -3,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 3
     },
     {
       "x": -3,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Wall"
+      "name": "Rock_Sandstone_Red_Brick_Wall"
     },
     {
       "x": -3,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 3
     },
     {
       "x": -2,
       "y": 0,
       "z": -2,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -2,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -2,
       "y": 1,
       "z": -1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "rotation": 2
     },
     {
       "x": -2,
       "y": 2,
       "z": -1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "filler": 1024,
+      "rotation": 2
+    },
+    {
+      "x": -2,
+      "y": 3,
+      "z": -1,
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
+      "filler": 2048,
       "rotation": 2
     },
     {
       "x": -2,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 1,
       "rotation": 3
     },
@@ -110,38 +119,38 @@
       "x": -2,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -2,
       "y": 1,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Base"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Base"
     },
     {
       "x": -2,
       "y": 2,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Middle"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Middle"
     },
     {
       "x": -2,
       "y": 3,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Middle"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Middle"
     },
     {
       "x": -2,
       "y": 4,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Base",
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Base",
       "rotation": 8
     },
     {
       "x": -2,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 1,
       "rotation": 3
     },
@@ -149,26 +158,33 @@
       "x": -2,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -2,
       "y": 1,
       "z": 1,
-      "name": "Furniture_Temple_Dark_Statue"
+      "name": "Furniture_Temple_Wind_Statue_Gaia"
     },
     {
       "x": -2,
       "y": 2,
       "z": 1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "filler": 1024
     },
     {
       "x": -2,
+      "y": 3,
+      "z": 1,
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
+      "filler": 2048
+    },
+    {
+      "x": -2,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 1,
       "rotation": 3
     },
@@ -176,58 +192,58 @@
       "x": -2,
       "y": 0,
       "z": 2,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -1,
       "y": 0,
       "z": -2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": -1,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -1,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Beam",
+      "name": "Rock_Sandstone_Red_Brick_Beam",
       "rotation": 5
     },
     {
       "x": -1,
       "y": 6,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 3
     },
     {
       "x": -1,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": -1,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Ornate"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": -1,
       "y": 6,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Steep",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Steep",
       "rotation": 3
     },
     {
       "x": -1,
       "y": 7,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Steep",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Steep",
       "filler": 1024,
       "rotation": 3
     },
@@ -235,156 +251,156 @@
       "x": -1,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": -1,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Beam",
+      "name": "Rock_Sandstone_Red_Brick_Beam",
       "rotation": 5
     },
     {
       "x": -1,
       "y": 6,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 1
     },
     {
       "x": -1,
       "y": 0,
       "z": 2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": 0,
       "y": 0,
       "z": -2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": 0,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 0,
       "y": 5,
       "z": -1,
-      "name": "Rock_Crystal_Blue_Block",
+      "name": "Rock_Crystal_Yellow_Block",
       "rotation": 4
     },
     {
       "x": 0,
       "y": 6,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 3
     },
     {
       "x": 0,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 0,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Ornate"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 0,
       "y": 6,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Beam",
+      "name": "Rock_Sandstone_Red_Brick_Beam",
       "rotation": 5
     },
     {
       "x": 0,
       "y": 7,
       "z": 0,
-      "name": "Rock_Crystal_Blue_Block",
+      "name": "Rock_Crystal_Yellow_Block",
       "rotation": 5
     },
     {
       "x": 0,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 0,
       "y": 5,
       "z": 1,
-      "name": "Rock_Crystal_Blue_Block",
+      "name": "Rock_Crystal_Yellow_Block",
       "rotation": 4
     },
     {
       "x": 0,
       "y": 6,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 1
     },
     {
       "x": 0,
       "y": 0,
       "z": 2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": 1,
       "y": 0,
       "z": -2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": 1,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 1,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Beam",
+      "name": "Rock_Sandstone_Red_Brick_Beam",
       "rotation": 5
     },
     {
       "x": 1,
       "y": 6,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 3
     },
     {
       "x": 1,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 1,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Ornate"
+      "name": "Rock_Sandstone_Red_Brick_Ornate"
     },
     {
       "x": 1,
       "y": 6,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Steep",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Steep",
       "rotation": 1
     },
     {
       "x": 1,
       "y": 7,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Steep",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Steep",
       "filler": 1024,
       "rotation": 1
     },
@@ -392,60 +408,68 @@
       "x": 1,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 1,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Beam",
+      "name": "Rock_Sandstone_Red_Brick_Beam",
       "rotation": 5
     },
     {
       "x": 1,
       "y": 6,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Flat",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Flat",
       "rotation": 1
     },
     {
       "x": 1,
       "y": 0,
       "z": 2,
-      "name": "Rock_Aqua_Brick_Half"
+      "name": "Rock_Sandstone_Red_Brick_Half"
     },
     {
       "x": 2,
       "y": 0,
       "z": -2,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 2,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 2,
       "y": 1,
       "z": -1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "rotation": 2
     },
     {
       "x": 2,
       "y": 2,
       "z": -1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "filler": 1024,
+      "rotation": 2
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": -1,
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
+      "filler": 2048,
       "rotation": 2
     },
     {
       "x": 2,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 31,
       "rotation": 1
     },
@@ -453,38 +477,38 @@
       "x": 2,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 2,
       "y": 1,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Base"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Base"
     },
     {
       "x": 2,
       "y": 2,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Middle"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Middle"
     },
     {
       "x": 2,
       "y": 3,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Middle"
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Middle"
     },
     {
       "x": 2,
       "y": 4,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Pillar_Base",
+      "name": "Rock_Sandstone_Red_Brick_Pillar_Base",
       "rotation": 8
     },
     {
       "x": 2,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 31,
       "rotation": 1
     },
@@ -492,26 +516,33 @@
       "x": 2,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 2,
       "y": 1,
       "z": 1,
-      "name": "Furniture_Temple_Dark_Statue"
+      "name": "Furniture_Temple_Wind_Statue_Gaia"
     },
     {
       "x": 2,
       "y": 2,
       "z": 1,
-      "name": "Furniture_Temple_Dark_Statue",
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
       "filler": 1024
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "z": 1,
+      "name": "Furniture_Temple_Wind_Statue_Gaia",
+      "filler": 2048
     },
     {
       "x": 2,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "filler": 31,
       "rotation": 1
     },
@@ -519,71 +550,72 @@
       "x": 2,
       "y": 0,
       "z": 2,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 3,
       "y": 0,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Wall"
+      "name": "Rock_Sandstone_Red_Brick_Wall",
+      "rotation": 2
     },
     {
       "x": 3,
       "y": 5,
       "z": -1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 1
     },
     {
       "x": 3,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick"
+      "name": "Rock_Sandstone_Red_Brick"
     },
     {
       "x": 3,
       "y": 1,
       "z": 0,
-      "name": "Furniture_Human_Ruins_Brazier"
+      "name": "Furniture_Jungle_Brazier"
     },
     {
       "x": 3,
       "y": 5,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 1
     },
     {
       "x": 3,
       "y": 0,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Wall"
+      "name": "Rock_Sandstone_Red_Brick_Wall"
     },
     {
       "x": 3,
       "y": 5,
       "z": 1,
-      "name": "Rock_Aqua_Brick_Roof_Shallow",
+      "name": "Rock_Sandstone_Red_Brick_Roof_Shallow",
       "rotation": 1
     },
     {
       "x": 4,
       "y": 0,
       "z": -1,
-      "name": "*Rock_Aqua_Brick_Wall_State_Definitions_Corner"
+      "name": "*Rock_Sandstone_Red_Brick_Wall_State_Definitions_Corner"
     },
     {
       "x": 4,
       "y": 0,
       "z": 0,
-      "name": "Rock_Aqua_Brick_Wall",
+      "name": "Rock_Sandstone_Red_Brick_Wall",
       "rotation": 1
     },
     {
       "x": 4,
       "y": 0,
       "z": 1,
-      "name": "*Rock_Aqua_Brick_Wall_State_Definitions_Corner",
+      "name": "*Rock_Sandstone_Red_Brick_Wall_State_Definitions_Corner",
       "rotation": 3
     }
   ],
@@ -688,6 +720,13 @@
     },
     {
       "x": -2,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
       "y": 5,
       "z": -1,
       "name": "Empty",
@@ -758,6 +797,13 @@
     },
     {
       "x": -2,
+      "y": 3,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": -2,
       "y": 5,
       "z": 1,
       "name": "Empty",
@@ -1052,6 +1098,13 @@
     },
     {
       "x": 2,
+      "y": 3,
+      "z": -1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
       "y": 5,
       "z": -1,
       "name": "Empty",
@@ -1116,6 +1169,13 @@
     {
       "x": 2,
       "y": 2,
+      "z": 1,
+      "name": "Empty",
+      "level": 0
+    },
+    {
+      "x": 2,
+      "y": 3,
       "z": 1,
       "name": "Empty",
       "level": 0
