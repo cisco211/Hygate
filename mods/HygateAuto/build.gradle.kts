@@ -50,7 +50,10 @@ tasks.named<ProcessResources>("processResources") {
         "plugin_website" to findProperty("plugin_website"),
 
         "plugin_main_entrypoint" to findProperty("plugin_main_entrypoint"),
-        "plugin_author" to findProperty("plugin_author")
+
+        "plugin_author_name" to findProperty("plugin_author_name"),
+        "plugin_author_email" to findProperty("plugin_author_email"),
+        "plugin_author_url" to findProperty("plugin_author_url")
     )
 
     filesMatching("manifest.json") {

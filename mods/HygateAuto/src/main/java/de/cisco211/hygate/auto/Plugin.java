@@ -1,8 +1,15 @@
 package de.cisco211.hygate.auto;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
+
 import javax.annotation.Nonnull;
 
+import com.hypixel.hytale.common.plugin.PluginManifest;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.server.core.asset.AssetModule;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
@@ -54,6 +61,14 @@ public class Plugin extends JavaPlugin
 
 		this.generator = new Generator(this);
 		generator.create();
+		try
+		{
+			generator.generate();
+		}
+		catch (IOException e)
+		{
+			LOGGER.atSevere().log("Generator failed: %s", e.getMessage());
+		}
 	}
 
 	/**
@@ -64,9 +79,36 @@ public class Plugin extends JavaPlugin
 	@Override
 	protected void setup()
 	{
-		this.getCommandRegistry().registerCommand(new Command(this));
+		// Debug
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin setup", this.identifier);
+
+		// Super
+		super.setup();
+
+		// Register command
+		this.getCommandRegistry().registerCommand(new Command(this));
+
+		// Get asset module
+		var module = AssetModule.get();
+
+		// Pack name
+		String name = Objects.requireNonNull(generator.packageName);
+
+		// Register pack
+		if (module.getAssetPack(name) == null)
+		{
+			PluginManifest manifest = new PluginManifest();
+			manifest.setName(name);
+			manifest.setGroup("Hygate");
+			Path root = Objects.requireNonNull(Paths.get("mods", name));
+			module.registerPack(name, root, Objects.requireNonNull(manifest));
+			var pack = module.getAssetPack(name);
+			if (pack == null)
+				LOGGER.atInfo().log("pack is null");
+			else
+				LOGGER.atInfo().log("%s", pack.toString());
+		}
 	}
 
 	/**
@@ -79,6 +121,7 @@ public class Plugin extends JavaPlugin
 	{
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin shutdown", this.identifier);
+		super.shutdown();
 	}
 
 	/**
@@ -91,5 +134,6 @@ public class Plugin extends JavaPlugin
 	{
 		if (debug)
 			LOGGER.atInfo().log("%s:Plugin start", this.identifier);
+		super.start();
 	}
 }

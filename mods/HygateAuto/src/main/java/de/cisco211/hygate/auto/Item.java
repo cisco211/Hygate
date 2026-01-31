@@ -18,7 +18,7 @@ public class Item
 	/**
 	 * <b>File begin</b>
 	 */
-	public static final String FILE_BEGIN = "Hygate_Auto_";
+	public static final String FILE_BEGIN = "Hygate_Manual_";
 
 	/**
 	 * <b>File end</b>
@@ -35,7 +35,7 @@ public class Item
 	 * <br/>
 	 * File name used for all embedded translations in this plugin.
 	 */
-	public static final String LANG_KEY = "hygate_auto_gen";
+	public static final String LANG_KEY = "hygate_manual";
 
 	/**
 	 * <b>Object</b>
@@ -182,14 +182,19 @@ public class Item
 		{
 			JsonObject translationProperties = new JsonObject();
 			{
-				{
-					String name = LANG_KEY + ".items." + FILE_BEGIN + world + ".name";
-					translationProperties.addProperty("Name", name);
-				}
-				{
-					String description = LANG_KEY + ".items." + FILE_BEGIN + world + ".description";
-					translationProperties.addProperty("Description", description);
-				}
+				// C: Temporary hack to make it work without translation stuff.
+				String name = worldToLabel(Objects.requireNonNull(world));
+				translationProperties.addProperty("Name", String.format("Hygate: '%s'", name));
+				translationProperties.addProperty("Description", String.format("Teleports you to the world '%s'", name));
+				// TODO: Figure out why the hell translations are not working at all.
+				// {
+				// 	String name = LANG_KEY + ".items." + FILE_BEGIN + world + ".name";
+				// 	translationProperties.addProperty("Name", name);
+				// }
+				// {
+				// 	String description = LANG_KEY + ".items." + FILE_BEGIN + world + ".description";
+				// 	translationProperties.addProperty("Description", description);
+				// }
 			}
 			object.add("TranslationProperties", translationProperties);
 		}
@@ -446,7 +451,7 @@ public class Item
 
 		// Quality
 		{
-			String quality = "Rare";
+			String quality = "Uncommon";
 			object.addProperty("Quality", quality);
 		}
 

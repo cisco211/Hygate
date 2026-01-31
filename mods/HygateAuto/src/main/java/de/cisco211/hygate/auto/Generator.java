@@ -61,7 +61,7 @@ public class Generator
 	 */
 	public Generator(@Nonnull Plugin plugin)
 	{
-		this.packageName = plugin.getManifest().getName() + "Gen";
+		this.packageName = "HygateManual";
 		this.plugin = plugin;
 		if (plugin.debug)
 			LOGGER.atInfo().log("%s:Generator constructor", plugin.identifier);
@@ -90,7 +90,7 @@ public class Generator
 			createDirectory(packagePath);
 
 			// Manifest
-			createManifest(packagePath);
+			//createManifest(packagePath);
 
 			// Get server path
 			Path serverPath = packagePath.resolve("Server");
@@ -225,7 +225,7 @@ public class Generator
 				}
 				else if (key.equalsIgnoreCase("includesAssetPack"))
 				{
-					newObj.addProperty(pascalKey, false);
+					newObj.addProperty(pascalKey, true);
 				}
 				else
 				{
